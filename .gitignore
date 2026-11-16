@@ -1,0 +1,8 @@
+.vs/
+**/bin/
+**/obj/
+**/*.user
+**/__pycache__/
+PhotoMatcher/Output/*
+PhotoMatcher/AI/test.jpg
+PhotoMatcher/AI/result.jpg

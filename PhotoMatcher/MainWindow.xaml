@@ -1,0 +1,37 @@
+﻿<Window x:Class="PhotoMatcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PhotoMatcher"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel VerticalAlignment="Top" Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="מהצלם:" VerticalAlignment="Center" Margin="10"/>
+                <TextBox x:Name="txtOldFolder" Width="200" Height="30" Margin="10,10,0,10" Text="\\myfs01\Files\שיתוף כללי\תמונות\ב מנחם צלם"/>
+                <Button Content="..." Width="30" Height="30" Margin="2,10,10,10" Click="BrowseOldFolder_Click" ToolTip="בחר תיקייה ישנה"/>
+                <TextBlock Text="מאגר הישיבה:" VerticalAlignment="Center" Margin="10"/>
+                <TextBox x:Name="txtNewFolder" Width="200" Height="30" Margin="10,10,0,10" Text="\\myfs01\Files\שיתוף כללי\תמונות\בית מנחם תמונות מהישיבה כולל צוות"/>
+                <Button Content="..." Width="30" Height="30" Margin="2,10,10,10" Click="BrowseNewFolder_Click" ToolTip="בחר תיקייה חדשה"/>
+                <TextBox x:Name="txtThreshold" Width="60" Height="30" Margin="10" Text="0.40" ToolTip="סף דמיון (0-1)"/>
+                <Button x:Name="btnRun" Content="בצע" Click="Button_Click"></Button>
+            </StackPanel>
+            <ProgressBar x:Name="progressBar" Height="20" Margin="10" Minimum="0" Maximum="100"/>
+            <TextBlock x:Name="txtStatus" HorizontalAlignment="Center" Margin="5"/>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel  >
+                    <TextBlock Text="זיהוי תמונות מהצלם:" Margin="10"/>
+                    <Button x:Name="btnCopyBest" Content="בחר את הטובים (דירוג 1) והעתק לתיקייה..." Margin="10" IsEnabled="False" Click="CopyBest_Click" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnCopyFocused" Content="העתק ותקן מיקוד (חיתוך + טשטוש אנשים נוספים) לתיקייה..." Margin="10" IsEnabled="False" Click="CopyFocused_Click" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="העתק את כל התמונות שנמצאו:" Margin="10"/>
+                    <Button x:Name="btnCopyAllMatches" Content="העתק את כל התואמים לתיקייה..." Margin="10" IsEnabled="False" Click="CopyAllMatches_Click" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+            <!--<Button x:Name="btnRetryUnmatched" Content="בחר תיקייה נוספת והרץ שוב על התמונות שלא זוהו..." Margin="10" IsEnabled="False" Click="RetryUnmatched_Click" HorizontalAlignment="Center"/>-->
+        </StackPanel>
+    </Grid>
+</Window>
